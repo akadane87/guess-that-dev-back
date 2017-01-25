@@ -42,18 +42,19 @@ class ResponsesController < ApplicationController
   # DELETE /responses/1
   # DELETE /responses/1.json
   def destroy
-    @response.destroy
+    @responses = Response.all
+    @responses
 
     head :no_content
   end
 
   private
 
-    def set_response
-      @response = Response.find(params[:id])
-    end
+  def set_response
+    @response = Response.find(params[:id])
+  end
 
-    def response_params
-      params.require(:response).permit(:response)
-    end
+  def response_params
+    params.require(:response).permit(:response, :user_id, :picture_id)
+  end
 end

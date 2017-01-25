@@ -1,3 +1,96 @@
+
+
+
+adam = Picture.find(1)
+adam.name = "Adam"
+adam.save!
+
+alex = Picture.find(2)
+alex.name = "Alex"
+alex.save!
+
+ariel = Picture.find(3)
+ariel.name = "Ariel"
+ariel.save!
+
+brandon = Picture.find(4)
+brandon.name = "Brandon"
+brandon.save!
+
+john = Picture.find(5)
+john.name = "John"
+john.save!
+
+julia = Picture.find(6)
+julia.name = "Julia"
+julia.save!
+
+kevin = Picture.find(7)
+kevin.name = "Kevin"
+kevin.save!
+
+kira = Picture.find(8)
+kira.name = "Kira"
+kira.save!
+
+kosta = Picture.find(9)
+kosta.name = "Kosta"
+kosta.save!
+
+matt = Picture.find(10)
+matt.name = "Matt"
+matt.save!
+
+patrick = Picture.find(11)
+patrick.name = "Patrick"
+patrick.save!
+
+peter = Picture.find(12)
+peter.name = "Peter"
+peter.save!
+
+rick = Picture.find(13)
+rick.name = "Rick"
+rick.save!
+
+ryan = Picture.find(14)
+ryan.name = "Ryan"
+ryan.save!
+
+suja = Picture.find(15)
+suja.name = "Suja"
+suja.save!
+
+yianni = Picture.find(16)
+yianni.name = "Yianni"
+yianni.save!
+
+caeleb = Picture.find(17)
+caeleb.name = "Caeleb"
+caeleb.save!
+
+kara = Picture.find(18)
+kara.name = "Kara"
+kara.save!
+
+stanley = Picture.find(19)
+stanley.name = "Stanley"
+stanley.save!
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 name_id,url
 1,http://i.imgur.com/b6QeoCN.jpg
 2,http://i.imgur.com/eIEDIH7.jpg
