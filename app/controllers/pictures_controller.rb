@@ -39,6 +39,11 @@ class PicturesController < ApplicationController
     end
   end
 
+  def random
+    @picture = Picture.get_random
+    render json: @picture
+  end
+
   # DELETE /pictures/1
   # DELETE /pictures/1.json
   def destroy

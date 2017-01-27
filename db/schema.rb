@@ -11,17 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170126194143) do
+ActiveRecord::Schema.define(version: 20170126191206) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "cards", force: :cascade do |t|
-    t.string   "image"
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
 
   create_table "examples", force: :cascade do |t|
     t.text     "text",       null: false
@@ -32,24 +25,12 @@ ActiveRecord::Schema.define(version: 20170126194143) do
 
   add_index "examples", ["user_id"], name: "index_examples_on_user_id", using: :btree
 
-  create_table "names", force: :cascade do |t|
-    t.string   "name"
-    t.integer  "picture_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
-  add_index "names", ["picture_id"], name: "index_names_on_picture_id", using: :btree
-
   create_table "pictures", force: :cascade do |t|
-    t.integer  "name_id",    null: false
     t.string   "url"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "name"
   end
-
-  add_index "pictures", ["name_id"], name: "index_pictures_on_name_id", using: :btree
 
   create_table "responses", force: :cascade do |t|
     t.boolean  "response"
@@ -57,7 +38,6 @@ ActiveRecord::Schema.define(version: 20170126194143) do
     t.integer  "picture_id"
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "Attemptid"
     t.integer  "attempt_id", default: 0
   end
 
@@ -74,5 +54,4 @@ ActiveRecord::Schema.define(version: 20170126194143) do
   add_index "users", ["token"], name: "index_users_on_token", unique: true, using: :btree
 
   add_foreign_key "examples", "users"
-  add_foreign_key "pictures", "names"
 end

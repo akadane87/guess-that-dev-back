@@ -1,11 +1,12 @@
 # frozen_string_literal: true
 Rails.application.routes.draw do
-  resources :pictures, except: [:new, :edit]
+  resources :pictures, only: [:index, :show]
   resources :responses, only: [:index, :create, :update]
   delete '/attempts' => 'users#destroyattempts'
   post '/attempts' => 'users#postattempts'
   get '/attempts/:id' => 'responses#get_game'
   get '/attempts' => 'responses#get_games'
+  get '/pictures/' => 'pictures#random'
   delete '/responses/:id', to: 'responses#destroy'
   # resources :responses, except: [:new, :edit]
   resources :names, except: [:new, :edit]
