@@ -2,7 +2,10 @@
 Rails.application.routes.draw do
   resources :pictures, except: [:new, :edit]
   resources :responses, only: [:index, :create, :update]
-  #delete '/responses', to: 'responses#destroy'
+  delete '/attempts' => 'users#destroyattempts'
+  post '/attempts' => 'users#postattempts'
+  get '/attempts/:id' => 'responses#get_game'
+  get '/attempts' => 'responses#get_games'
   delete '/responses/:id', to: 'responses#destroy'
   # resources :responses, except: [:new, :edit]
   resources :names, except: [:new, :edit]
@@ -11,6 +14,7 @@ Rails.application.routes.draw do
   post '/sign-up' => 'users#signup'
   post '/sign-in' => 'users#signin'
   delete '/sign-out/:id' => 'users#signout'
+
   patch '/change-password/:id' => 'users#changepw'
   resources :users, only: [:index, :show]
 end

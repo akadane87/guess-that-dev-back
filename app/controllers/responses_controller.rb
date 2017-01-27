@@ -1,4 +1,4 @@
-class ResponsesController < ApplicationController
+class ResponsesController < OpenReadController
   before_action :set_response, only: [:show, :update, :destroy]
 
   # GET /responses
@@ -18,13 +18,26 @@ class ResponsesController < ApplicationController
   # POST /responses
   # POST /responses.json
   def create
-    @response = Response.new(response_params)
+    # @response = Response.new(response_params)
+    @response = current_user.responses.build(response_params)
+    puts current_user.attempts
+    @response[:attempt_id] = current_user.attempts
 
     if @response.save
       render json: @response, status: :created, location: @response
     else
       render json: @response.errors, status: :unprocessable_entity
     end
+  end
+
+  def get_game
+    @responses = current_user.responses.where({attempt_id:params[:id]})
+    render json: @responses
+  end
+
+  def get_games
+    @responses = {count:current_user.attempts}
+    render json:@responses
   end
 
   # PATCH/PUT /responses/1
@@ -55,6 +68,6 @@ class ResponsesController < ApplicationController
   end
 
   def response_params
-    params.require(:response).permit(:response, :user_id, :picture_id)
+    params.require(:response).permit(:response, :user_id, :picture_id, :attempt_id)
   end
 end

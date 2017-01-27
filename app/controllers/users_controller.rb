@@ -33,6 +33,22 @@ class UsersController < ProtectedController
     end
   end
 
+  def destroyattempts
+    puts "DESTROY ATTEMPTS RUNNING"
+    current_user.attempts = 0
+    current_user.save
+    Response.where({user_id:current_user.id}).destroy_all
+
+    head :no_content
+  end
+
+  def postattempts
+    current_user.attempts = current_user.attempts + 1
+    current_user.save
+
+    head :no_content
+  end
+
   # PATCH '/change-password/:id'
   def changepw
     if !current_user.authenticate(pw_creds[:old]) ||
