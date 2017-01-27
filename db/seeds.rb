@@ -31,10 +31,10 @@ require 'csv'
 # Picture.create(name: 'Kara', url: 'http://i.imgur.com/s8a2kR3.jpg')
 # Picture.create(name: 'Stanley', url: 'http://i.imgur.com/yFGS4pa.jpg')
 
-CSV.foreach('./names.csv', :headers => true) do |row|
-  Name.create!(row.to_hash)
-end
+# CSV.foreach('./names.csv', :headers => true) do |row|
+#   Name.create!(row.to_hash)
+# end
 
-CSV.foreach('./pictures.csv', :headers => true) do |row|
-  Picture.create!(row.to_hash)
-end
+# CSV.foreach('./pictures.csv', :headers => true) do |row|
+#   Picture.create!(row.to_hash)
+# end
