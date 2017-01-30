@@ -42,15 +42,15 @@ class ResponsesController < OpenReadController
 
   # PATCH/PUT /responses/1
   # PATCH/PUT /responses/1.json
-  # def update
-  #   @response = Response.find(params[:id])
-  #
-  #   if @response.update(response_params)
-  #     head :no_content
-  #   else
-  #     render json: @response.errors, status: :unprocessable_entity
-  #   end
-  # end
+  def update
+    @response = current_user.responses.find(params[:id])
+
+    if @response.update(response_params)
+      head :no_content
+    else
+      render json: @response.errors, status: :unprocessable_entity
+    end
+  end
 
   # DELETE /responses/1
   # DELETE /responses/1.json
