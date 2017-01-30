@@ -23,7 +23,7 @@ Deployed Back: https://aqueous-falls-94606.herokuapp.com/
 
 
 Links to Back End ERD/User Stories:
-<img src="http://i.imgur.com/WzZ27yYg.jpg" alt="wireframes">
+<img src="http://i.imgur.com/ryvDhqW.jpg" alt="wireframes">
 A user should be able to own data.
 A user should be able to see the same flash cards.
 A user should be keep track of there score.
