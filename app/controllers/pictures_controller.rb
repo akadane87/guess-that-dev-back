@@ -40,7 +40,9 @@ class PicturesController < ApplicationController
   end
 
   def random
-    @picture = Picture.offset(rand(Picture.count)).first
+    # binding.pry
+    @picture = Picture.all.shuffle
+
     render json: @picture
   end
 
