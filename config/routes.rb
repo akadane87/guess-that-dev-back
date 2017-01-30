@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   delete '/attempts' => 'users#destroyattempts'
   post '/attempts' => 'users#postattempts'
   get '/attempts/:id' => 'responses#get_game'
-  get '/attempts' => 'responses#get_games'
+  get '/attempts' => 'responses#getgames'
   get '/pictures/' => 'pictures#random'
   delete '/responses/:id', to: 'responses#destroy'
   # resources :responses, except: [:new, :edit]

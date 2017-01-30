@@ -35,27 +35,26 @@ class ResponsesController < OpenReadController
     render json: @responses
   end
 
-  def get_games
-    @responses = {count:current_user.attempts}
-    render json:@responses
+  def getgames
+    @responses = { count: current_user.attempts }
+    render json: @responses
   end
 
   # PATCH/PUT /responses/1
   # PATCH/PUT /responses/1.json
-  def update
-    @response = Response.find(params[:id])
-
-    if @response.update(response_params)
-      head :no_content
-    else
-      render json: @response.errors, status: :unprocessable_entity
-    end
-  end
+  # def update
+  #   @response = Response.find(params[:id])
+  #
+  #   if @response.update(response_params)
+  #     head :no_content
+  #   else
+  #     render json: @response.errors, status: :unprocessable_entity
+  #   end
+  # end
 
   # DELETE /responses/1
   # DELETE /responses/1.json
   def destroy
-    @response = Response.find(params[:id])
     @responses.destory
 
     head :no_content
@@ -64,7 +63,7 @@ class ResponsesController < OpenReadController
   private
 
   def set_response
-    @response = Response.find(params[:id])
+    @response = current_user.responses.find(params[:id])
   end
 
   def response_params

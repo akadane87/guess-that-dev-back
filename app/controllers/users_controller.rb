@@ -34,7 +34,7 @@ class UsersController < ProtectedController
   end
 
   def destroyattempts
-    puts "DESTROY ATTEMPTS RUNNING"
+    puts "DESTROY attempts RUNNING"
     current_user.attempts = 0
     current_user.save
     Response.where({user_id:current_user.id}).destroy_all
