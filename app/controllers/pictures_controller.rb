@@ -41,7 +41,7 @@ class PicturesController < ApplicationController
 
   def random
     # binding.pry
-    @picture = Picture.all.shuffle
+    @picture = Picture.all
 
     render json: @picture
   end
