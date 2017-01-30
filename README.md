@@ -31,3 +31,6 @@ A user should be able to come back the app with their info intact.
 
 Installation Dependancies:
 Should you choose to fork or download this repository - Simply run bundle install and npm after you have intialized it.
+
+Hurdles and Unsolved Problems:
+Sloppy data modeling made my life harder starting out. I originally had a one to one table of names to responeses which made my life much much difficult until I cleaned everything up. Summoning data from 2 different tables into one element made things more complicated than they needed to be. Unsolved problems: generating the flashcards randomly. Using the ".shuffle" method in rails made each array shuffle instead of the resource. That led to my data-ids generating out order and thus ruining the flash cards name check function. I'll figure it out after resubmissions.
